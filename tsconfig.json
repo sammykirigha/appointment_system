@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es2016",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-    "lib": ["es6"],   
-    "module": "commonjs",                                /* Specify what module code is generated. */
+    "target": "ES2018",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "lib": ["ES2018", "ESNext.AsyncIterable"],   
+    "module": "commonjs",  
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,                              /* Specify what module code is generated. */
     "rootDir": "./src",                                    /* Specify the root folder within your source files. */
     "resolveJsonModule": true,  
     "allowJs": true,                                     /* Allow JavaScript files to be a part of your program. Use the 'checkJS' option to get errors from these files. */

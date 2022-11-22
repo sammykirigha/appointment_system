@@ -13,6 +13,7 @@
     ],
     "rules": { 
     "@typescript-eslint/no-inferrable-types": "off",
+    "@typescript-eslint/no-var-requires": "off",
     "no-console": 0 ,// Remember, this means warning!
     "prettier/prettier": 0 // Means error
   }
