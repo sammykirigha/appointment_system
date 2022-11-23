@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  api:
+    build: ./
+    ports:
+      - 4000:4000
+    environment:
+        - SECRET_KEY=sammykightgfhgcvbnb
+        - PORT=4000 
+        - NODE_ENV=development
+        - POSTGRES_HOST=db
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=postgres
+        - POSTGRES_DB=appointments_db
+  db:
+    image: postgres
+    ports:
+      - 54321:5432
+    environment:
+      - POSTGRES_HOST=db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=appointments_db
+    volumes:
+      - /D:/personal_projects/Node/appointment-system:/app
+
