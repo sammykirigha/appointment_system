@@ -10,7 +10,7 @@ const defaultConfig = {
 	host: 'smtp-mail.outlook.com',
     port: 587,
     auth: {
-        user: "sammydorcis@outlook.com",
+        user: "doctriswork@outlook.com",
         pass: "Sammy3646."
     }
 };

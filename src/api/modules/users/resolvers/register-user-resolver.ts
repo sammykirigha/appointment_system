@@ -8,6 +8,7 @@ import crypto from 'crypto';
 import sendMail from "../../../utils/sendEmail";
 import loadTemplate from "../../../utils/loadEmailTemplate";
 
+@Resolver()
 export class RegisterUserResolver {
 	@Mutation(returns => User, {
 		description: "creating user"
@@ -54,7 +55,7 @@ export class RegisterUserResolver {
 				await sendMail({
 					from: {
 						name: "Doctirs Medical Hospital",
-						address: "sammydorcis@outlook.com"
+						address: "doctriswork@outlook.com"
 					},
 					to: `${user.email}`,
 					subject: "Confirmation Email",

@@ -1,18 +1,16 @@
+const dotenv = require('dotenv');
+
+dotenv.config();
+
 module.exports = {
-    development: {
-        database: process.env.DB_DB,
-        username: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-        host: process.env.DB_HOST,
-        dialect: process.env.POSTGRES_DIALECT
-    }
-    
-  };
-
-
-
-
-
+  development: {
+    database: process.env.POSTGRES_DB,
+    username: process.env.POSTGRES_USER,
+    password: process.env.POSTGRES_PASSWORD,
+    host: process.env.POSTGRES_HOST,
+    dialect: process.env.POSTGRES_DIALECT
+  }
+};
 
 // {
 //   "development": {

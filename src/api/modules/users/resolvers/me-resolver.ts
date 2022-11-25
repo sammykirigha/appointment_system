@@ -1,10 +1,11 @@
 
-import { Authorized, Ctx, Query } from "type-graphql";
+import { Authorized, Ctx, Query, Resolver } from "type-graphql";
 import db from "../../../../models";
 import { sign } from "jsonwebtoken";
 import { User } from "../schemas/user";
 import { Context } from "../../../common/interfaces/context.interface";
 
+@Resolver()
 export class MeResolver {
 	@Query(returns => User, {
 		description: "get the current user"

@@ -8,6 +8,8 @@ import express from "express";
 import http from "http";
 import { userRoleStatus } from "./api/common/enums/userRoles";
 import { verify } from "jsonwebtoken";
+import { MeResolver } from "./api/modules/users/resolvers/me-resolver";
+import { RegisterUserResolver } from "./api/modules/users/resolvers/register-user-resolver";
 
 const registerEnumTypes = (enumTypes: any) => {
     enumTypes.forEach((enumType: any) => {
@@ -30,7 +32,9 @@ async function startApolloServer(){
 
     const schema = await buildSchema({
         resolvers: [
-            __dirname + "/api/modules/**/*.ts"
+            // __dirname + "/api/modules/**/*.ts"
+            MeResolver,
+            RegisterUserResolver
         ],
         authChecker
     })
