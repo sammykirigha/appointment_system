@@ -3,8 +3,13 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.json')[env];
+const config = require('../config/config')[env];
 const db: any = {};
+
+console.log('====================================');
+console.log(config);
+console.log('====================================');
+
 
 let sequelize: any;
 if (config.use_env_variable) {

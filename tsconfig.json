@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "target": "ES2018",                                  /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
-    "lib": ["ES2018", "ESNext.AsyncIterable"],   
+    "lib": ["ES2018", "ESNext.AsyncIterable"],  
+    "strictPropertyInitialization": false, 
     "module": "commonjs",  
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,                              /* Specify what module code is generated. */
