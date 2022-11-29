@@ -7,9 +7,13 @@ import { sign } from "jsonwebtoken";
 import crypto from 'crypto';
 import sendMail from "../../../utils/sendEmail";
 import loadTemplate from "../../../utils/loadEmailTemplate";
+import { ISecret } from "../../../common/interfaces/secret";
+import * as dotenv from "dotenv"
+dotenv.config();
 
 @Resolver()
 export class RegisterUserResolver {
+	
 	@Mutation(returns => User, {
 		description: "creating user"
 	})
@@ -48,9 +52,9 @@ export class RegisterUserResolver {
 					.update(authToken)
 					.digest("hex");
 
-				const link = `http://localhost:3001/confirm-email/${authToken}`
+				const link = `http://localhost:3000/confirm-email/${authToken}`
 
-				const htmlData = await loadTemplate('registration-email', { name: user.username, accountType: user.role, link: link })
+				const htmlData = await loadTemplate('email_two', {username: user.username, name: user.username, accountType: user.role, link: link })
 
 				await sendMail({
 					from: {
@@ -70,10 +74,12 @@ export class RegisterUserResolver {
 				
 				await user.save()
 
+				const secret:string  = process.env.SECRET_KEY || 'sammykightgfhgcvbnb';
+
 				const token = sign({
 					id: user.id,
 					email: user.email,
-				}, 'sammykightgfhgcvbnb', { expiresIn: '24h' })
+				}, secret, { expiresIn: '24h' })
 
 
 				user.token = token;
