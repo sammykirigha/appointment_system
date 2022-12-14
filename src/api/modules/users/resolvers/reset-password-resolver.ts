@@ -51,7 +51,6 @@ export class ResetPasswordResolver {
 		user.passwordResetToken = null;
 		user.passwordResetExpires = null;
 
-
 		await user.save()
 
 		return "Your password has been reset successfully"
