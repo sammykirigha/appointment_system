@@ -6,15 +6,8 @@ services:
       - connection_network
     ports:
       - 4000:4000
-    environment:
-      - SECRET_KEY=sammykightgfhgcvbnb
-      - PORT=4000
-      - NODE_ENV=development
-      - POSTGRES_HOST=db
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=appointments_db
-      - POSTGRES_DIALECT=postgres
+    env_file:
+      - ./env/api.env
     volumes:
       - ./src:/app/src
     depends_on:
@@ -26,11 +19,8 @@ services:
       - connection_network
     ports:
       - 5432:5432
-    environment:
-      - POSTGRES_HOST=db
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=appointments_db
+    env_file:
+      - ./env/postgres.env
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./src:/app/src

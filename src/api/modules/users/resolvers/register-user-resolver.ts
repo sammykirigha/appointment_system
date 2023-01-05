@@ -10,7 +10,7 @@ import loadTemplate from "../../../utils/loadEmailTemplate";
 import { ISecret } from "../../../common/interfaces/secret";
 import * as dotenv from "dotenv"
 dotenv.config();
-
+ 
 @Resolver()
 export class RegisterUserResolver {
 	
