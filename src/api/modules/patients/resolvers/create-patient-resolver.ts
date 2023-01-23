@@ -51,17 +51,17 @@ export class CreatePatientResolver {
 
 			if (patient) {
 				// const htmlData = await loadTemplate('register-email', { name: user.firstName, accountType: user.role })
-				await sendMail({
-					from: {
-						name: "Samuel Kirigha",
-						address: "sammydorcis@outlook.com"
-					},
-					to: `${patient.email}`,
-					subject: "Doctor Account Created",
-					// text: "Please check your email to confirm before you continue. The email is valid for 30 min",
-					html: `<p>You have successfully created an patient account.Please make complete your profile</p>`
-				}
-				)
+				// await sendMail({
+				// 	from: {
+				// 		name: "Samuel Kirigha",
+				// 		address: "sammydorcis@outlook.com"
+				// 	},
+				// 	to: `${patient.email}`,
+				// 	subject: "Doctor Account Created",
+				// 	text: "Please check your email to confirm before you continue. The email is valid for 30 min",
+				// 	html: `<p>You have successfully created an patient account.Please make complete your profile</p>`
+				// }
+				// )
 
 				//update users table role for this patient
 				const thisPatient = await db.logged_in_users.findOne({ where: { email: patient.email } })

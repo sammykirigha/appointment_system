@@ -12,6 +12,7 @@ import {CreateDepartmentResolver, GetDepartmentsResolver} from "./api/modules/de
 import {LoginResolver, MeResolver, RegisterUserResolver, ConfirmEmailResolver, ForgotPasswordResolver, ResetPasswordResolver} from "./api/modules/users/resolvers"
 import { CreatePatientResolver } from "./api/modules/patients/resolvers/create-patient-resolver";
 import { DoctorResolver, GetSingleDoctorByEmail } from "./api/modules/doctors/resolvers";
+import { GetSingleAppointmentById } from "./api/modules/patients/resolvers/get-single-patient-reslover";
 
 const registerEnumTypes = (enumTypes: any) => {
     enumTypes.forEach((enumType: any) => {
@@ -45,7 +46,8 @@ async function startApolloServer(){
             CreatePatientResolver,
             GetDepartmentsResolver,
             DoctorResolver,
-            GetSingleDoctorByEmail
+            GetSingleDoctorByEmail,
+            GetSingleAppointmentById
         ],
         authChecker
     })
