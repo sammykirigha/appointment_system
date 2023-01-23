@@ -90,6 +90,9 @@ export class RegisterUserResolver {
 			
 		} catch (error) {
            await transaction.rollback();
+		   console.log('====================================');
+		   console.log("error", error);
+		   console.log('====================================');
 			throw error;
 		}
 	}

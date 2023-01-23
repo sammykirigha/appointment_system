@@ -2,7 +2,7 @@ import { IsDate, IsEmail, IsNotEmpty, MinLength } from "class-validator";
 import { Field, InputType, ObjectType } from "type-graphql";
 import { AppointmentStatus } from "../../../common/enums/appointment.enum";
 import { Doctor } from "../../doctors/schemas/doctors";
-import { Patient } from "../../patients/schemas/patient";
+import { Patient } from "../../patients/schemas/index";
 
 
 @ObjectType()

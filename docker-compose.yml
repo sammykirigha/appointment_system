@@ -2,6 +2,8 @@ version: "3.8"
 services:
   api:
     build: ./
+      # context: ./build
+      # dockerfile: Dockerfile-dev  //if dockerfile is named differently
     networks:
       - connection_network
     ports:
@@ -10,6 +12,8 @@ services:
       - ./env/api.env
     volumes:
       - ./src:/app/src
+      # - logs:/app/logs
+      # - /app/node_modules
     depends_on:
       - db
 
@@ -24,6 +28,17 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./src:/app/src
+  # frontend:
+  #   build: ./frontend
+  #   ports: 
+  #     - 3000:3000    
+  #   volumes:
+  #     - ./frontend/src:/app/src
+  #   container_name: frontend
+  #   stdin_open: true
+  #   tty: true  
+  #   depends_on:
+  #     - api
 
 volumes:
   pgdata:
