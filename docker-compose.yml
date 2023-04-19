@@ -2,8 +2,6 @@ version: "3.8"
 services:
   api:
     build: ./
-      # context: ./build
-      # dockerfile: Dockerfile-dev  //if dockerfile is named differently
     networks:
       - connection_network
     ports:
@@ -12,8 +10,6 @@ services:
       - ./env/api.env
     volumes:
       - ./src:/app/src
-      # - logs:/app/logs
-      # - /app/node_modules
     depends_on:
       - db
 
@@ -22,7 +18,7 @@ services:
     networks:
       - connection_network
     ports:
-      - 5432:5432
+      - 5440:5440
     env_file:
       - ./env/postgres.env
     volumes:
