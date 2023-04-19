@@ -8,7 +8,11 @@ import express from "express";
 import http from "http";
 import { userRoleStatus } from "./api/common/enums/userRoles";
 import { verify } from "jsonwebtoken";
+import {CreateDepartmentResolver, GetDepartmentsResolver} from "./api/modules/departments/resolvers"
 import {LoginResolver, MeResolver, RegisterUserResolver, ConfirmEmailResolver, ForgotPasswordResolver, ResetPasswordResolver} from "./api/modules/users/resolvers"
+import { CreatePatientResolver } from "./api/modules/patients/resolvers/create-patient-resolver";
+import { DoctorResolver, GetSingleDoctorByEmail } from "./api/modules/doctors/resolvers";
+import { GetSingleAppointmentById } from "./api/modules/patients/resolvers/get-single-patient-reslover";
 
 const registerEnumTypes = (enumTypes: any) => {
     enumTypes.forEach((enumType: any) => {
@@ -37,7 +41,13 @@ async function startApolloServer(){
             LoginResolver,
             ConfirmEmailResolver,
             ForgotPasswordResolver,
-            ResetPasswordResolver
+            ResetPasswordResolver,
+            CreateDepartmentResolver,
+            CreatePatientResolver,
+            GetDepartmentsResolver,
+            DoctorResolver,
+            GetSingleDoctorByEmail,
+            GetSingleAppointmentById
         ],
         authChecker
     })

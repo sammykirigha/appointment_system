@@ -10,7 +10,7 @@ import loadTemplate from "../../../utils/loadEmailTemplate";
 import { ISecret } from "../../../common/interfaces/secret";
 import * as dotenv from "dotenv"
 dotenv.config();
-
+ 
 @Resolver()
 export class RegisterUserResolver {
 	
@@ -90,6 +90,9 @@ export class RegisterUserResolver {
 			
 		} catch (error) {
            await transaction.rollback();
+		   console.log('====================================');
+		   console.log("error", error);
+		   console.log('====================================');
 			throw error;
 		}
 	}
